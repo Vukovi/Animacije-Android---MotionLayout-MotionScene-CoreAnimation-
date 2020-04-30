@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Transition
+            app:constraintSetStart="@+id/start"
+            app:constraintSetEnd="@+id/end"
+            app:duration="3000">
+        <OnClick
+                app:targetId="@id/moon"
+                app:clickAction="toggle"
+        />
+
+<!--        ovde pravim luk-->
+<!--        FRAME_POSITION je procenat izmedju 0 i 100, i govori u kom trenutku trajanja animacije ce da se ovaj luk ima svoj spic-->
+<!--        MOTION_TARGET govori na koga se primenjuje luk -->
+<!--        KEY_POSITION_TYPE moze biti parentRelative, deltaReletive ili pathRelative, i to je nacin modifikovanja luka, tj putanje-->
+<!--        PRECENT_Y i PERCENT_X se kercu izmedju 0 i 1 i pokazuju zakrivaljenje luka u odnosu na ekran, tj putanje-->
+        <KeyFrameSet>
+            <KeyPosition
+                    app:framePosition="50"
+                    app:motionTarget="@id/moon"
+                    app:keyPositionType="parentRelative"
+                    app:percentY="0.5"
+            />
+        </KeyFrameSet>
+
+    </Transition>
+
+    <!-- Pocetno stanje animacije -->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/moon"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+<!--        u ovom konstreintu uticem na nestajanje texta-->
+        <Constraint
+            android:id="@id/credits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.0"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/moon"
+            app:layout_constraintTop_toTopOf="@id/moon"
+            />
+    </ConstraintSet>
+
+    <!-- Krajnje stanje animacije -->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/moon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+<!--        u ovom konstrejntu uticem na pojavljivanje texta-->
+        <Constraint
+            android:id="@id/credits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="1.0"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/moon"
+            app:layout_constraintTop_toTopOf="@id/moon"
+        />
+    </ConstraintSet>
+</MotionScene>

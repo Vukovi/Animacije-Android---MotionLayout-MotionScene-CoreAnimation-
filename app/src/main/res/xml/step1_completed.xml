@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 1. postavljam animaciju za activity_step1.xml pomocu taga MotionScene-->
+<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 4. dodajem opis animacije i ubacujem ID koraka 2 i koraka 3-->
+    <Transition
+            app:constraintSetStart="@+id/startStep1"
+            app:constraintSetEnd="@+id/endStep1"
+            app:duration="2000">
+        <!-- 5. tek sad pokrecem animaciju, jer se pre ovoga nista ne desava, uz opis TOGGLE -->
+        <OnClick
+                app:targetId="@id/red_star"
+                app:clickAction="toggle" />
+    </Transition>
+
+    <!-- 2.Constrainti pocetka animacije -->
+    <ConstraintSet android:id="@+id/startStep1">
+        <Constraint
+                android:id="@+id/red_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <!-- 3.Constrainti kraja animacije -->
+    <ConstraintSet android:id="@+id/endStep1">
+        <Constraint
+                android:id="@+id/red_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+    </ConstraintSet>
+</MotionScene>

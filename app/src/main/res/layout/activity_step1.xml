@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 1. umesto ConstraintLayout mora biti MotionLayout -->
+<!-- 2. MotionLayout tagu se mora dodati fajl iz xml foldera -> app:layoutDescription="@xml/step1_completed" -->
+<!-- 3. @xml/step1_completed se mora napraviti i on ce predstavljati layout animacije -->
+
+<androidx.constraintlayout.motion.widget.MotionLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/step1_completed">
+
+    <ImageView
+            android:id="@+id/red_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_outline"
+            android:tint="?colorSecondary"
+            android:contentDescription="@string/star"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="30dp"
+    />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
